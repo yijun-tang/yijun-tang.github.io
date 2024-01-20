@@ -31,9 +31,11 @@ github_username:  yijun-tang
 markdown: GFM
 
 # Build settings
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 minima:
   skin: solarized
