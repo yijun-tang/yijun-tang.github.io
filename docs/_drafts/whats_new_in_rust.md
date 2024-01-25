@@ -31,9 +31,26 @@ enhanced features:
 
 unclear points:
 1. integer overflow
+2. deref coercions
 
 
 core features:
 1. data types: scalar (integer, float-point, boolean, char), compound (tuple, array)
 
 
+Ownership:
+1. similar to RAII in C++
+2. object on heap (move, clone), or on stack (copy)
+3. the scope of reference is defined by the declaration point and last time used point.
+
+```rust
+let mut s = String::from("hello");
+
+let r1 = &s; // no problem
+let r2 = &s; // no problem
+println!("{} and {}", r1, r2);
+// variables r1 and r2 will not be used after this point
+
+let r3 = &mut s; // no problem
+println!("{}", r3);
+```
