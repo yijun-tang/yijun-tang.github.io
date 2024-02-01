@@ -32,6 +32,7 @@ enhanced features:
 unclear points:
 1. integer overflow
 2. deref coercions
+3. lifetime
 
 
 core features:
@@ -54,3 +55,7 @@ println!("{} and {}", r1, r2);
 let r3 = &mut s; // no problem
 println!("{}", r3);
 ```
+
+***
+similar features:
+1. `Struct` is very similar to Go.
