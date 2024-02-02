@@ -16,6 +16,7 @@ bad features:
 1. symbols shadow within same block (close to the dynamic type???)
 2. mutable variable vs. constants
 3. what's the purpose of scalar type `isize` and `usize`
+4. `if let` syntax sugar
 
 
 good features:
@@ -23,10 +24,12 @@ good features:
 2. rich integer literal formats
 3. no implicit conversion from non-boolean to boolean
 4. distinction between expression and statement
+5. `match` instead `switch` clause
 
 
 enhanced features:
 1. `loop` with `break` (break the loop with an return value, break nested loops) and `continue` (continue nested loops)
+2. `enum` types can contain addtional data inside
 
 
 unclear points:
@@ -59,3 +62,4 @@ println!("{}", r3);
 ***
 similar features:
 1. `Struct` is very similar to Go.
+2. `Option` enum in std lib is similar to Scala
