@@ -63,3 +63,10 @@ println!("{}", r3);
 similar features:
 1. `Struct` is very similar to Go.
 2. `Option` enum in std lib is similar to Scala
+
+
+***
+Module system:
+* A _package_ is a bundle of one or more crates that provides a set of functionality. (Cargo.toml, multiple binary crates, and at most one library crate)
+* A _crate_ is the smallest amount of code that the Rust compiler considers at a time.
+* _Modules_ let us organize code within a crate for readability and easy reuse. (Notice that the entire module tree is rooted under the implicit module named `crate`.)
