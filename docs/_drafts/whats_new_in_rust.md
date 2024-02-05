@@ -36,6 +36,7 @@ unclear points:
 1. integer overflow
 2. deref coercions
 3. lifetime
+4. what's the role of macro? 
 
 
 core features:
@@ -70,3 +71,8 @@ Module system:
 * A _package_ is a bundle of one or more crates that provides a set of functionality. (Cargo.toml, multiple binary crates, and at most one library crate)
 * A _crate_ is the smallest amount of code that the Rust compiler considers at a time.
 * _Modules_ let us organize code within a crate for readability and easy reuse. (Notice that the entire module tree is rooted under the implicit module named `crate`.)
+
+***
+What Is a String?
+* Essentially, the `String` type is a vector of bytes `Vec<u8>`
+* Rust has only one string type in the core language, which is the string slice `str` that is usually seen in its borrowed form `&str`.
