@@ -83,3 +83,8 @@ Error Handling:
 * No exceptions, it has type `Result<T, E>` for recoverable errors, and `panic!` macro for unrecoverable errors
 * Two ways to panic: implictly (accessing an array past the end) or explicitly (`panic!`)
 * Recoverable errors with `Result`: pattern match, methods of `Result<T, E>`, or `?`
+
+***
+Generics:
+* functions, structs, enums, methods
+* no additional runtime cost
