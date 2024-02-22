@@ -30,6 +30,7 @@ good features:
 enhanced features:
 1. `loop` with `break` (break the loop with an return value, break nested loops) and `continue` (continue nested loops)
 2. `enum` types can contain addtional data inside
+3. `main` function could return any type as long as implementing `std::process::Termination` trait
 
 
 unclear points:
@@ -76,3 +77,9 @@ Module system:
 What Is a String?
 * Essentially, the `String` type is a vector of bytes `Vec<u8>`
 * Rust has only one string type in the core language, which is the string slice `str` that is usually seen in its borrowed form `&str`.
+
+***
+Error Handling:
+* No exceptions, it has type `Result<T, E>` for recoverable errors, and `panic!` macro for unrecoverable errors
+* Two ways to panic: implictly (accessing an array past the end) or explicitly (`panic!`)
+* Recoverable errors with `Result`: pattern match, methods of `Result<T, E>`, or `?`
