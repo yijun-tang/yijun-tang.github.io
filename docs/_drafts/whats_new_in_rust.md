@@ -97,4 +97,7 @@ Traits:
 * If the returning type is specified as trait, only one concrete type of instance could be return ??? (very interesting)
 * Conditionally implementing trait by using trait bounds, and _blanket implemenations_
 
-
+***
+Lifetimes: (a kind of generics)
+* Ultimately, lifetime syntax is about connecting the lifetimes of various parameters and return values of functions.
+* Three lifetime elision rules (increasing with time goes by)
