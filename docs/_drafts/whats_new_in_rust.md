@@ -88,3 +88,13 @@ Error Handling:
 Generics:
 * functions, structs, enums, methods
 * no additional runtime cost
+
+***
+Traits:
+* similar to interface of other programming languages
+* _orphan rule_ avoids the ambiguity
+* Traits as Parameters: `impl Trait` syntax, `Trait bound` syntax, `+` syntax for multiple trait bounds, and `where` clause
+* If the returning type is specified as trait, only one concrete type of instance could be return ??? (very interesting)
+* Conditionally implementing trait by using trait bounds, and _blanket implemenations_
+
+
