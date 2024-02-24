@@ -101,3 +101,9 @@ Traits:
 Lifetimes: (a kind of generics)
 * Ultimately, lifetime syntax is about connecting the lifetimes of various parameters and return values of functions.
 * Three lifetime elision rules (increasing with time goes by)
+
+***
+Testing:
+* Running test in parallel or in sequential, and other options
+* Unit tests are placed with code tested, integration tests are in tests directory
+* `#[cfg(test)]`, `#[test]` attributes
