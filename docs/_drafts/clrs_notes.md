@@ -18,3 +18,16 @@ Most of this book assumes a generic one-processor, random-access machine (RAM) m
 * data types: integer, foating point (for storing real number approximations), and character
 
 The _running time_ is the function of _input size_. We often use the big theta notation to represent the order of growth of the running time.
+
+***
+Notations for characterizing the performance:
+
+Three kinds of notations:
+* big O: the _upper bound_ of asymptotic efficiency of algorithms
+* big omega: the _lower bound_ of ...
+* big theta: the _tight bound_ of ...
+
+> If you can show that a function is both `big O(f(n))` and `big Omega(f(n))` for some function `f(n)`, then you have shown that the function is `big Theta(f(n))`.
+
+***
+This book is so proof-heavy, so the nexting reading will be practical oriented.
