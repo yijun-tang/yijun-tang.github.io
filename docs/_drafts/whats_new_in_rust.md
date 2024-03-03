@@ -115,6 +115,6 @@ Closures:
 * Automatically implement one, two, or all three of these `Fn` traits (`FnOnce`, `FnMut`, `Fn`)
 
 ***
-Iterators:
+Iterators: (zero-cost abstraction)
 * All iterators should implement trait `Iterator`
 * Three types of iterators: `into_iter`, `iter_mut`, `iter`
