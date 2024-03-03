@@ -107,3 +107,9 @@ Testing:
 * Running test in parallel or in sequential, and other options
 * Unit tests are placed with code tested, integration tests are in tests directory
 * `#[cfg(test)]`, `#[test]` attributes
+
+***
+Closures:
+* Captured variable could be immutable/mutable references or owning data
+* If moving ownership, this action happens at definition of closure
+* Automatically implement one, two, or all three of these `Fn` traits (`FnOnce`, `FnMut`, `Fn`)
