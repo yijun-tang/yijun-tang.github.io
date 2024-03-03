@@ -113,3 +113,8 @@ Closures:
 * Captured variable could be immutable/mutable references or owning data
 * If moving ownership, this action happens at definition of closure
 * Automatically implement one, two, or all three of these `Fn` traits (`FnOnce`, `FnMut`, `Fn`)
+
+***
+Iterators:
+* All iterators should implement trait `Iterator`
+* Three types of iterators: `into_iter`, `iter_mut`, `iter`
