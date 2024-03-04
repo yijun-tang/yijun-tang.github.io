@@ -74,6 +74,13 @@ Module system:
 * _Modules_ let us organize code within a crate for readability and easy reuse. (Notice that the entire module tree is rooted under the implicit module named `crate`.)
 
 ***
+More about Cargo:
+* Customizing Builds with Profiles: `dev` profile when you build with `cargo build`, `release` profile when you build with `cargo build --release`
+* Publishing Crate to Crates.io
+* Cargo Workspaces (multiple crates share the same `Cargo.lock` file and `target` directory)
+* `cargo install` and extensions to cargo
+
+***
 What Is a String?
 * Essentially, the `String` type is a vector of bytes `Vec<u8>`
 * Rust has only one string type in the core language, which is the string slice `str` that is usually seen in its borrowed form `&str`.
