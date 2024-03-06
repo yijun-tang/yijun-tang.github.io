@@ -46,7 +46,7 @@ core features:
 
 Ownership:
 1. similar to RAII in C++
-2. object on heap (move, clone), or on stack (copy)
+2. move (create new one and invalidate the previous one when assigning with `=`) or copy (create new one from the previous one, and need to implement `Copy` trait)
 3. the scope of reference is defined by the declaration point and last time used point.
 
 ```rust
@@ -125,3 +125,25 @@ Closures:
 Iterators: (zero-cost abstraction)
 * All iterators should implement trait `Iterator`
 * Three types of iterators: `into_iter`, `iter_mut`, `iter`
+
+***
+Smart Pointers: (single-threaded)
+* the difference between references and smart pointers: while references only borrow data, in many cases, smart pointers own the data they point to
+
+`Box<T>`:
+* three use cases: recursive types, zero copy ownership transfer, trait object
+* `Deref` trait (or `DerefMut` trait) and _deref coercion_
+* `Drop` trait for automatic `drop` method call when variable is out of scope, and `std::mem::drop` for early dropping
+
+`Rc<T>`: allows mutiple read-only owners
+
+_Interior mutability_ is a design pattern in Rust that allows you to mutate data even when there are immutable references to that data; normally, this action is disallowed by the borrowing rules.
+
+Unsafe code: the compiler doesn't check it, you should check it manually
+
+`RefCell<T>`: allows immutable or mutable borrows checked at **runtime**, if borrow checking failed, would panic
+
+Reference Cycle:
+* `Rc<T>` inside `RefCell<T>`, or other combinations
+* how to avoid it? refercence cycle is made up of ownership (`Rc<T>`) and non-ownership (`Weak<T>`) relationships
+
