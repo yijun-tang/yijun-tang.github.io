@@ -147,3 +147,10 @@ Reference Cycle:
 * `Rc<T>` inside `RefCell<T>`, or other combinations
 * how to avoid it? refercence cycle is made up of ownership (`Rc<T>`) and non-ownership (`Weak<T>`) relationships
 
+***
+Fearless Concurrency:
+* one OS thread per one language thread
+* share memory by communication
+* communication by sharing memory: `Arc<T>`
+* extensible concurrency with `Sync` and `Send` traits
+
