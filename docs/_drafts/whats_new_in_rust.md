@@ -168,3 +168,79 @@ Patterns and Matching:
 * refutable/irrefutable: if let, while let (warning against irrefutable patterns)
 
 Note: The downside of _match guard_ is that the compiler doesn't try to check for exhaustiveness when _match guard_ expressions are involved.
+
+***
+Advanced Features:
+
+Unsafe Rust: (programmers need to uphold the memory safety guarantees)
+* unsafe superpowers: 
+  * dereference a raw pointer
+    - allow to have both mutable and immutable pointers or multiple mutable pointers to the same location
+    - aren't guaranteed to point to valid memory
+    - allowed to be null
+    - don't implement any automatic cleanup
+
+    ```rust
+    // only allowed to create raw pointers outside of unsafe block
+    let mut num = 5;
+    // *const T, *mut T are raw pointers type of type T respectively
+    let r1 = &num as *const i32;
+    let r2 = &mut num as *mut i32;
+    ```
+    ```rust
+    let mut num = 5;
+
+    let r1 = &num as *const i32;
+    let r2 = &mut num as *mut i32;
+    // dereference of raw pointers should be placed within unsafe block
+    unsafe {
+        println!("r1 is: {}", *r1);
+        println!("r2 is: {}", *r2);
+    }
+    ```
+  * call an unsafe function or method
+    ```rust
+    unsafe fn dangerous() {}
+    
+    unsafe {
+        dangerous();
+    }
+    ```
+  * access or modify a mutable static variable
+    ```rust
+    static mut COUNTER: u32 = 0;
+
+    fn add_to_count(inc: u32) {
+        unsafe {
+            COUNTER += inc;
+        }
+    }
+
+    fn main() {
+        add_to_count(3);
+
+        unsafe {
+            println!("COUNTER: {}", COUNTER);
+        }
+    }
+    ```
+  * implement an unsafe trait
+  * access fields of `union`s
+* should enclose unsafe code within a safe abstraction and provide a safe API
+  ```rust
+  use std::slice;
+  
+  fn split_at_mut(values: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
+    let len = values.len();
+    let ptr = values.as_mut_ptr();
+
+    assert!(mid <= len);
+
+    unsafe {
+        (
+            slice::from_raw_parts_mut(ptr, mid),
+            slice::from_raw_parts_mut(ptr.add(mid), len - mid),
+        )
+    }
+  }
+  ```
