@@ -161,3 +161,10 @@ OOP features of Rust:
 * inheritance: default method impl of trait
 * ploymorphism: _generics_ and _trait bounds_ (static dispatch without runtime cost), or _trait object_ (dynamic dispatch with runtime cost)
 
+***
+Patterns and Matching:
+* refutable(only successful matching) or irrefutable (successful or failed matching)
+* irrefutable only: function parameters, let statements, for loops
+* refutable/irrefutable: if let, while let (warning against irrefutable patterns)
+
+Note: The downside of _match guard_ is that the compiler doesn't try to check for exhaustiveness when _match guard_ expressions are involved.
