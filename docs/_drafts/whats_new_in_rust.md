@@ -154,3 +154,10 @@ Fearless Concurrency:
 * communication by sharing memory: `Arc<T>`
 * extensible concurrency with `Sync` and `Send` traits
 
+***
+OOP features of Rust:
+* class/objects: `struct`, `enum` with `impl`
+* encapsulation: `pub`, private by default
+* inheritance: default method impl of trait
+* ploymorphism: _generics_ and _trait bounds_ (static dispatch without runtime cost), or _trait object_ (dynamic dispatch with runtime cost)
+
