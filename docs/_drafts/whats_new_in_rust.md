@@ -103,6 +103,10 @@ Traits:
 * Traits as Parameters: `impl Trait` syntax, `Trait bound` syntax, `+` syntax for multiple trait bounds, and `where` clause
 * If the returning type is specified as trait, only one concrete type of instance could be return ??? (very interesting)
 * Conditionally implementing trait by using trait bounds, and _blanket implemenations_
+* associated types or generic type for trait???
+* default concrete type for generic type
+* _supertrait_ is the trait inheritance in a sense
+* _newtype pattern_ gets around the _orphan rule_ to implement external traits on external types (no runtime cost)
 
 ***
 Lifetimes: (a kind of generics)
