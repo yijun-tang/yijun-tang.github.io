@@ -249,8 +249,17 @@ Unsafe Rust: (programmers need to uphold the memory safety guarantees)
   }
   ```
 
-  ***
-  Miscs:
-  * `!` the _never type_ represent the never return type
-  * `Sized` trait is a dirty corner with special syntax `?Sized`
-  * `fn` function pointer type which implements all three `Fn` traits
+***
+Macros:
+
+Why macros?
+Fundamentally, macros are a way of writing code that writes other code, which is known as _metaprogramming_.
+
+* declarative macros with `macro_rules!`
+* procedural macros
+
+***
+Miscs:
+* `!` the _never type_ represent the never return type
+* `Sized` trait is a dirty corner with special syntax `?Sized`
+* `fn` function pointer type which implements all three `Fn` traits
