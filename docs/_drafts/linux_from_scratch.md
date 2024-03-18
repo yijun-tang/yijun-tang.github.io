@@ -4,6 +4,8 @@ title: "Linux From Scratch"
 categories: os, linux
 ---
 
+The Book: [Linux From Scratch](https://www.linuxfromscratch.org/lfs/index.html)
+
 ## 0 Preface
 
 ### 0.1 Foreword
