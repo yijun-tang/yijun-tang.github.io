@@ -36,4 +36,13 @@ To print a character to the screen in VGA text mode, one has to write it to the 
 
 [Code page 437](https://en.wikipedia.org/wiki/Code_page_437)
 
+### Testing
+
+For `no_std` applications such as our kernel, Rust's build-in test framework which depend on standard library is no longer useful.
+
+The unstable [custom test frameworks](https://doc.rust-lang.org/unstable-book/language-features/custom-test-frameworks.html) feature comes in.
+
+The test runner entry is mixed with kernel logic, so conditional compilation is used to run the tests only for `cargo test`. But we need to use device `isa-debug-exit` to exit qemu guest system.
+
+If we want our tests running by a script without showing qemu window and redirect the test results to host system, we need to use the UART serial port.
 
