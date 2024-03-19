@@ -30,4 +30,10 @@ The Booting Steps:
 The Multiboot Standard: (the interface between bootloader and OS)
 * The reference implementation is **_GNU GRUB_**, which is the most popular bootloader for Linux systems.
 
+### VGA Text Mode
+
+To print a character to the screen in VGA text mode, one has to write it to the text buffer of the VGA hardware. The VGA text buffer is accessible via **_memory-mapped I/O_** to the address `0xb8000`. This means that reads and writes to that address don't access the RAM but directly access the text buffer on the VGA hardware.
+
+[Code page 437](https://en.wikipedia.org/wiki/Code_page_437)
+
 
