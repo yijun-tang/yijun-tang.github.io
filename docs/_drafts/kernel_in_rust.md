@@ -46,3 +46,39 @@ The test runner entry is mixed with kernel logic, so conditional compilation is 
 
 If we want our tests running by a script without showing qemu window and redirect the test results to host system, we need to use the UART serial port.
 
+### CPU Exceptions
+
+On x86, there are about 20 different CPU exception types. The most important are:
+* **Page Fault**: A page fault occurs on illegal memory accesses.
+* **Invalid Opcode**: This exception occurs when the current instruction is invalid.
+* **General Protection Fault**: This is the exception with the broadest range of causes. For example, trying to execute a privileged instruction in user-level code or writing reserved fields in configuration registers.
+* **Double Fault**: When an exception occurs, the CPU tries to call the corresponding handler funcion. If another exception occurs while calling the exception handler, the CPU raises a double fault exception. This exception also occurs when there is no handler function registered for an exception.
+* **Triple Fault**: If an exception occurs while the CPU tries to call the double fault handler function, it raises a fatal triple fault. We can't catch or handle a triple fault. Most processors react by resetting themselves and rebooting the OS.
+
+[Full list of exceptions](https://wiki.osdev.org/Exceptions)
+
+When an exception occurs, the CPU roughly does the following:
+1. Push some registers on the stack, including the instruction pointer and the FLAGS registers.
+2. Read the corresponding entry fromt the Interrupt Descriptor Table (IDT). For example, the CPU reads the 14th entry when a page fault occurs.
+3. Check if the entry is present and, if not, raise a double fault.
+4. Disable hardware interrupts if the entry is an interrupt gate (bit 40 not set).
+5. Load the specified GDT selector into the CS (code segment).
+6. Jump to the specified handler function.
+
+**_Calling conventions_** specify the details of a function call. For example, they specify where function parameters are placed (e.g. in registers or on the stack) and how results are returned. On x86_64 Linux, the following rules apply for C functions: (specified in the [System V ABI](https://refspecs.linuxbase.org/elf/x86_64-abi-0.99.pdf))
+* the first six integer arguments are passed in registers `rdi`, `rsi`, `rdx`, `rcx`, `r8`, `r9`
+* additional arguments are passed on the stack
+* results are returned in `rax` and `rdx`
+
+Note: Rust doesn't follow the C ABI (in fact, there isn't even a Rust ABI yet), so these rules apply only to functions declared as `extern "C" fn`.
+
+**_preserved register_** is also referred to as **_callee-saved register_**:
+* `rbp`, `rbx`, `rsp`, `r12`, `r13`, `r14`, `r15`
+
+**_scratch register_** is also referred to as **_caller-saved register_**
+* `rax`, `rcx`, `rdx`, `rsi`, `rdi`, `r8`, `r9`, `r10`, `r11`
+
+Since we don't know when an exception occurs, we can't backup any registers before. Instead, we need a calling convention that preserves all registers. The _x86-interrupt calling convention_ is such a calling convention.
+
+
+
