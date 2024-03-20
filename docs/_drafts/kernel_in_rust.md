@@ -88,4 +88,7 @@ The x86_64 architecture is able to switch to a predefined, known-good stack when
 
 The Global Descriptor Table (GDT) is a relic that was used for memory segmentation before paging became the de facto standard. While segmentation is no longer supported in 64-bit mode, the GDT still exists. It's mostly used for two things: Switching between kernel space and user space, and loading a TSS structure.
 
+### Hardware Interrupts
+
+Collecting all hardware devices directly to the CPU is not possible. Instead, a separate _interrupt controller_ aggregates the interrupts from all devices and then notifies the CPU.
 
