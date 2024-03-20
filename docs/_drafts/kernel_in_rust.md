@@ -80,5 +80,12 @@ Note: Rust doesn't follow the C ABI (in fact, there isn't even a Rust ABI yet), 
 
 Since we don't know when an exception occurs, we can't backup any registers before. Instead, we need a calling convention that preserves all registers. The _x86-interrupt calling convention_ is such a calling convention.
 
+### Double Faults
+
+A guard page is a special memory page at the bottom of a stack that makes it possible to detect stack overflows. The page is not mapped to any physical frame, so accessing it causes a page fault instead of silently corruptting other memory. The bootloader sets up a guard page for our kernel stack, so a stack overflow causes a page fault.
+
+The x86_64 architecture is able to switch to a predefined, known-good stack when an exception occurs. This switch happens at hardware level, so it can be performed before the CPU pushes the exception stack frame (interrupt stack frame). The switching mechanism is implemented as an _Interrupt Stack Table_(IST). The IST is part of an old legacy structure called _Task State Segment_(TSS). The TSS used to hold various pieces of information (e.g. processor register state) about a task in 32-bit mode and was, for example, used for hardware context switching. However, hardware context switching is no longer supported in 64-bit mode.
+
+The Global Descriptor Table (GDT) is a relic that was used for memory segmentation before paging became the de facto standard. While segmentation is no longer supported in 64-bit mode, the GDT still exists. It's mostly used for two things: Switching between kernel space and user space, and loading a TSS structure.
 
 
