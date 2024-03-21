@@ -92,3 +92,16 @@ The Global Descriptor Table (GDT) is a relic that was used for memory segmentati
 
 Collecting all hardware devices directly to the CPU is not possible. Instead, a separate _interrupt controller_ aggregates the interrupts from all devices and then notifies the CPU.
 
+### Paging
+
+One main task of an operating system is to isolate programs from each other. To achieve this goal, operating systems utilize hardware functionality to ensure that memory areas of one process are not accessible by other processes. There are different approaches depending on the hardware and the OS implementation. On x86, the hardware supports two different approaches to memory protection: **_segmentation_** and **_paging_**.
+
+The fragmentation problem is one of the reasons that segmentation is no longer used by most systems. In fact, segmentation is not even supported in 64-bit mode on x86 anymore.
+
+The x86_64 architecture uses a 4-level page table and a page size of 4KiB. Each page table, independent of the level, has a fixed size of 512 entries. Each entry has a size of 8 bytes, so each table is 512 * 8B = 4KiB large and thus fits exactly into one page.
+
+The x86_64 architecture only support 52-bit physical addresses and 48-bit virtual addresses.
+
+A 4-level page table makes the translation of virtual addresses expensive because each translation requires four memory accesses. To improve performance, the x86_64 architecture caches the last few translations in the so-called _translation lookaside buffer_(TLB). Unlike the other CPU caches, the TLB is not fully transparent and doesn't update or remove translations when the contents of page tables change.
+
+OS is responsible for page table updating and flush the TLB, and CPU would translate virtual address to physical address automatically.
