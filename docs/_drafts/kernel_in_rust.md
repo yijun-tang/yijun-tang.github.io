@@ -127,4 +127,19 @@ pub unsafe trait GlobalAlloc {
 }
 ```
 
+### Allocator Designs
+
+Correctness, Low fragmentation, Performance, and Scalability
+
+**Bump/Stack Allocator**
+
+The big advantage of bump allocation is that it's very fast. It could be optimized to just a few assembly instructions. Obviously, the main limitation of a bump allocator is that it can only reuse deallocated memory after all allocations have been freed.
+
+**Linked List Allocator**
+
+For a program that fragments the heap with many allocations, the allocation performance will be very bad because the linked list will be very long and mostly contain very small blocks. It's worth noting that this performance issue isn't a problem caused by our basic implementation but an intrinsic problem of this approach.
+
+**Fixed-Size Block Allocator**
+
+The fixed-size block approach has much better performance than the linked list approach, it wastes up to half of the memory when using powers of 2 as block sizes. For an operating system kernel, where performance is critical, the fixed-size block approach seems to be the better choice.
 
