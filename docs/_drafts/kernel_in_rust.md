@@ -105,3 +105,26 @@ The x86_64 architecture only support 52-bit physical addresses and 48-bit virtua
 A 4-level page table makes the translation of virtual addresses expensive because each translation requires four memory accesses. To improve performance, the x86_64 architecture caches the last few translations in the so-called _translation lookaside buffer_(TLB). Unlike the other CPU caches, the TLB is not fully transparent and doesn't update or remove translations when the contents of page tables change.
 
 OS is responsible for page table updating and flush the TLB, and CPU would translate virtual address to physical address automatically.
+
+### Heap Allocation
+
+Instead of letting the programmer manually call `allocate` and `deallocate`, the Rust standard library provides abstraction types that call these functions implicitly. Namely smart pointers.
+
+The `alloc` crate is Rust's core allocation and collections library. It defines the low-level interface to the default global allocator. It's not compatible with the libc allocator API. This crate requires a heap allocator which is limited by `GlobalAlloc` trait.
+
+```rust
+pub unsafe trait GlobalAlloc {
+    unsafe fn alloc(&self, layout: Layout) -> *mut u8;
+    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout);
+
+    unsafe fn alloc_zeroed(&self, layout: Layout) -> *mut u8 { ... }
+    unsafe fn realloc(
+        &self,
+        ptr: *mut u8,
+        layout: Layout,
+        new_size: usize
+    ) -> *mut u8 { ... }
+}
+```
+
+
