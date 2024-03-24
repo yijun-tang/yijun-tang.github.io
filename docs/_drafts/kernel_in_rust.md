@@ -143,3 +143,40 @@ For a program that fragments the heap with many allocations, the allocation perf
 
 The fixed-size block approach has much better performance than the linked list approach, it wastes up to half of the memory when using powers of 2 as block sizes. For an operating system kernel, where performance is critical, the fixed-size block approach seems to be the better choice.
 
+### Async/Await
+
+**Basic Concepts**
+
+One of the fundamental features of most operating systems is multitasking, which is the ability to execute multiple tasks concurrently. There are two forms of multitasking: _Cooperative multitasking_ requires tasks to regularly give up control of the CPU so that other tasks can make progress. _Preemptive multitasking_ uses operating system functionality to switch threads at arbitrary points in time by forcibly pausing them.
+
+Preemptive multitasking and threads are fundamental components of an operating system because they make it possible to run untrusted usespace programs.
+
+Cooperative multitasking is often used at the language level, like in the form of coroutines or async/await.
+
+**Async/Await in Rust**
+
+How to work on the Rust [Future](https://doc.rust-lang.org/nightly/core/future/trait.Future.html)?
+
+```rust
+pub trait Future {
+    type Output;
+    fn poll(self: Pin<&mut Self>, cx: &mut Context) -> Poll<Self::Output>;
+}
+```
+
+There are two ways:
+* Waiting on Futures: 
+  * actively waiting for the future by calling the `poll`
+  * blocking and waiting for to be waked up
+* Future Combinators
+  * don't wait for demanding value, wrap in another future through combinator
+  * semi-official [futures](https://docs.rs/futures/0.3.4/futures/) crate for combinator methods
+
+The idea behind async/await is to let the programmer write code that looks like normal synchronous code, but is turned into asynchronous code by the compiler.
+
+In order to dealing with the self-referential structs in Rust, the Pin API was introduced.
+
+**Implementation**
+
+
+
