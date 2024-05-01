@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What's New in Rust?"
+title: "Rust Book Reading Notes"
 categories: language
 ---
 
