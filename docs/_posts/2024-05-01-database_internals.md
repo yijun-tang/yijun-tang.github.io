@@ -47,7 +47,28 @@ durability in memory-based stores: **snapshot** + **log**, asynchronously apply 
 ***
 **Column- VS. Row-Oriented DBMS**
 
+Column-oriented databases should not be mixed up with **_wide column stores_**, such as **BigTable** or **HBase**.
 
+***
+**Data Files and Index Files**
+
+Database systems store data records, consisting of multiple fields, in tables, where each table is usually represented as a separate file. There are two types of files: data file and index file.
+
+Files are partitioned into **_pages_**, which typically have the size of a single or multiple disk blocks.
+
+Most modern storage systems don't delete data from pages explicitly. Instead, they use **_deletion markers_** (alse called **_tombstones_**), which contain deletion metadata, such as a key and a timestamp. Space occupied by the records shadowed by their updates or deletion markers is reclaimed during **_garbage collection_**, which reads the pages, writes the live records to the new place, and discards the shadowed ones.
+
+Data files can be implemented as:
+* index-organized tables
+* heap-organized tables (records are placed in a writer order)
+* hash-organized tables
+
+***
+**Buffering, Immutability, and Ordering**
+
+Most of the distinctions and optimizations in storage structures discussed in this book are related to one of these three concepts.
+
+### Ch2: B-Tree Basics
 
 ## Distributed Systems
 
