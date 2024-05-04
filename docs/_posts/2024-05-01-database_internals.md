@@ -70,6 +70,20 @@ Most of the distinctions and optimizations in storage structures discussed in th
 
 ### Ch2: B-Tree Basics
 
+**Disk-Based Structures**
+
+HDD: the smallest transfer unit is a **_sector_**, its size typically range from 512 bytes to 4Kb.
+
+![ssd organization schematics](/assets/2024-05-01-database_internals/figure2-5.png)
+
+SSD: the smallest unit can be written or read is **_page_** (2 to 16 Kb), it should be erased before writing, the smallest erase entity isn't a page, but a block that hold multiple pages (64 to 512 pages), pages in an empty block have to be written sequentially.
+
+Writing only full blocks, and combining subsequent writes to the same block, can help to reduce the number of required I/O operations.
+
+Compared with BST, B-Tree increases node fanout, and reduce the tree height, the number of node pointers, and the frequency of balancing operations.
+
+**Ubiquitous B-Trees**
+
 ## Distributed Systems
 
 
