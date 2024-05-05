@@ -82,7 +82,20 @@ Writing only full blocks, and combining subsequent writes to the same block, can
 
 Compared with BST, B-Tree increases node fanout, and reduce the tree height, the number of node pointers, and the frequency of balancing operations.
 
+***
 **Ubiquitous B-Trees**
+
+node splits:
+1. allocate a new node
+2. copy half the elements from the splitting node to the new one
+3. place the new element into the corresponding node
+4. at the parent of the split node, add a separator key and a pointer to the new node
+
+> **[To Be Replaced with Better Contents]**
+
+### Ch3: File Formats
+
+
 
 ## Distributed Systems
 
