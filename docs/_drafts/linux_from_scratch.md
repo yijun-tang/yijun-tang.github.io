@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux From Scratch"
-categories: os, linux
+categories: os linux
 ---
 
 The Book: [Linux From Scratch](https://www.linuxfromscratch.org/lfs/index.html)

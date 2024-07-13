@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Redis的事件循环机制"
-categories: redis, eventloop
+categories: redis eventloop
 ---
 
 众所周知，Redis服务器是单线程架构，且能够同时并发地服务多个客户端。其实现方式是怎样的呢？背后主要包含两大机制：IO多路复用（IO Multiplexing）机制，以及事件循环（Eventloop）机制。本篇主要介绍事件循环机制，当然不可避免的会涉及到IO多路复用机制（例如：Linux下的`epoll`）。
