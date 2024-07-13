@@ -224,7 +224,7 @@ int aeProcessEvents(aeEventLoop *eventLoop, int flags)
 }
 ```
 
-上述处理函数中值得注意的是`numevents = aeApiPoll(eventLoop, tvp);`，这里tvp表示最近即将需要执行的时间事件具体发生的时间戳。在`aeApiPoll`函数内部，作为等待就绪的文件事件的最大等待时长，也就是说，在最近的一个时间事件发生之前，如果没有文件事件处于就绪状态，那么在等待超时之后，直接执行最近的时间事件；反之，如果有文件事件需要处理，那么就会立马先执行文件事件，再处理事件事件，如果执行文件事件的时间过长，那么约定的时间事件得到处理的时间就会被推迟。`aeApiPoll`函数如下：
+上述处理函数中值得注意的是`numevents = aeApiPoll(eventLoop, tvp);`，这里tvp表示距离最近即将需要执行的时间事件的时间间隔。在`aeApiPoll`函数内部，作为等待就绪的文件事件的最大等待时长，也就是说，在最近的一个时间事件发生之前，如果没有文件事件处于就绪状态，那么在等待超时之后，直接执行最近的时间事件；反之，如果有文件事件需要处理，那么就会立马先执行文件事件，再处理事件事件，如果执行文件事件的时间过长，那么约定的时间事件得到处理的时间就会被推迟。`aeApiPoll`函数如下：
 
 ```c
 static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {
