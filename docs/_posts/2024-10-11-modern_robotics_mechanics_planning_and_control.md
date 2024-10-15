@@ -25,3 +25,26 @@ Sensors are used to measure displacement, velocity, force, torque, and localizat
 
 ### 2. Configuration Space
 
+Robot's **configuration**: a specification of the positions of all points of the robot.
+
+The number of **degrees of freedom (dof)** of a robot is the smallest number of real-valued coordinates needed to represent its configuration.
+
+The n-dimensional space containing all possible configurations of the robot is called the **configuration space (C-space)**.
+
+#### 2.1 Degrees of Freedom of a Rigid Body
+
+The general rule for determining the number of degrees of freedom of a system:
+
+```txt
+degrees of freedom = (sum of freedoms of the points) - (number of independent constraints)
+```
+
+For robots consist of rigid bodies, the degrees of freedom:
+
+```txt
+degrees of freedom = (sum of freedoms of the bodies) - (number of independent constraints)
+```
+
+#### 2.2 Degrees of Freedom of a Robot
+
+![Typical robot joints](/assets/2024-10-11-modern_robotics_mechanics_planning_and_control/figure2-3.png)
