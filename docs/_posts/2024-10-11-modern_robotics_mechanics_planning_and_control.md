@@ -48,3 +48,31 @@ degrees of freedom = (sum of freedoms of the bodies) - (number of independent co
 #### 2.2 Degrees of Freedom of a Robot
 
 ![Typical robot joints](/assets/2024-10-11-modern_robotics_mechanics_planning_and_control/figure2-3.png)
+
+The _Grubler's formula_ for the number of degrees of freedom of the robot is:
+
+```txt
+dof = m(N - 1 - J) + (sum of dof of all joints)
+```
+
+![Some classical planar mechanisms](/assets/2024-10-11-modern_robotics_mechanics_planning_and_control/figure2-5.png)
+
+The DoF of Figure 2.5 as following:
+* dof = 3((k + 1) - 1 - k) + k = k
+* dof = 3(5 - 1 - 5) + 5 = 2
+* dof = 3(6 - 1 - 7) + 7 = 1
+* dof = 3(6 - 1 - 7) + 7 = 1
+
+There are exceptions which doesn't follow the above formula.
+
+![Redundant constraints and singularities](/assets/2024-10-11-modern_robotics_mechanics_planning_and_control/figure2-7.png)
+
+For Figure 2.7(a), the calculation `3(5 - 1 - 6) + 6 = 0` isn't correct. A mechanism with zero dof is by definition a rigid structure. It's clear from examining the figure, though, that the mechanism can in fact move with one dof. Indeed, any one of the three parallel links, with its two joints, has no effect on the motion of the mechanism, so we should have calculated `dof = 3(4 - 1 - 4) + 4 = 1`. In other words, the constraints provided by the joints are not independent, as required by _Grubler's formula_.
+
+> ?
+
+> For the Delta robot, the dof of end effector is 3???
+
+<img src="/assets/2024-10-11-modern_robotics_mechanics_planning_and_control/figure2-8.png" alt="The Delta robot" width="368" height="519">
+
+
