@@ -75,4 +75,17 @@ For Figure 2.7(a), the calculation `3(5 - 1 - 6) + 6 = 0` isn't correct. A mecha
 
 <img src="/assets/2024-10-11-modern_robotics_mechanics_planning_and_control/figure2-8.png" alt="The Delta robot" width="368" height="519">
 
+#### 2.3 Configuration Space: Topology and Representation
+
+**Topologically Equivalent**: if one can be continuously deformed into the other without cutting or gluing. 
+
+Note that the topology of a surface is a fundamental property of the space itself and _is independent of how we choose coordinates to represent the points in the space_.
+
+We need to choose coordinate to represent spaces. A choice of n coordinates, or parameters, to represent an n-dimensional space is called an **explicit parametrization** of the space.
+
+The singularities of representation is the points where the coordinates change rapidly. If we calculate the velocity as the time rate of change of coordinates. There are two ways to overcome it:
+1. Use more than one **coordinate chart** on the space, where each coordinate chart is an explicit parametrization covering only a portion of the space such that, within each chart, there is no singularity.
+2. Use an **implicit representation** instead of an explicit parametrization. An implicit representation views the n-dimensional space as embedded in a Euclidean space of more than n dimensions.
+
+> In particular, we use nine numbers, subject to six constraints, to represent the three orientation freedoms of a rigid body in space. This is called a **rotation matrix**.
 
