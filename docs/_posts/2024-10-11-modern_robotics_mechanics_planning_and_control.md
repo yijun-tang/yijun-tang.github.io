@@ -89,3 +89,18 @@ The singularities of representation is the points where the coordinates change r
 
 > In particular, we use nine numbers, subject to six constraints, to represent the three orientation freedoms of a rigid body in space. This is called a **rotation matrix**.
 
+#### 2.4 Configuration and Velocity Constraints
+
+**Holonomic Constraints**: reducing the dimension of the C-space.
+
+**Nonholonomic Constraints**: reducing the dimension of the feasible velocities of the system but don't reduce the dimension of the reachable C-space.
+
+#### 2.5 Task Space and Workspace
+
+**Task Space**: a space in which the robot's task can be naturally expressed. The decision of how to define the task space is driven by the task, independently of the robot.
+
+**Workspace**: a specification of the configurations that the end-effector of the robot can reach. The definition of the workspace is primarily driven by robot's structure, independently of the task.
+
+### 3. Rigid-Body Motions
+
+
