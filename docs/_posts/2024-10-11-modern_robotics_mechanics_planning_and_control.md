@@ -103,4 +103,11 @@ The singularities of representation is the points where the coordinates change r
 
 ### 3. Rigid-Body Motions
 
+#### 3.1 Rigid-Body Motions in the Plane
 
+A rotation matrix-vector pair such as `(P, p)` can be used for three purposes:
+1. to represent a configuration of a rigid body in {s} frame
+2. to change the reference frame in which a vector or frame is represented
+3. to displace a vector or a frame
+
+Chasles-Mozzi theorem: every rigid-body displacement can be obtained by a finite rotation and translation about a fixed screw axis.
