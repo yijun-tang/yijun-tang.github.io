@@ -1,25 +1,34 @@
 import Image from "next/image";
-import imgAvatar from "../../public/avatar.svg";
+import { Encode_Sans_SC, Epilogue } from "next/font/google";
+
+const heading1Font = Encode_Sans_SC({
+  subsets: ["latin"],
+  weight: "700",
+});
+
+const heading2Font = Epilogue({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 function Heading1() {
   return (
-    <div className="h-[45px] relative shrink-0 w-full" data-name="Heading 1">
-      <p
-        className="absolute font-['Encode_Sans_SC:Bold',_sans-serif] font-bold inset-0 leading-[normal] text-[36px] text-black"
-        style={{ fontVariationSettings: "'wdth' 100" }}
-      >
-        Yijun Tang
-      </p>
+    <div
+      className={`${heading1Font.className} text-[36px] leading-[normal]`}
+      data-name="Heading 1"
+    >
+      Yijun Tang
     </div>
   );
 }
 
 function Heading2() {
   return (
-    <div className="h-[21px] relative shrink-0 w-full" data-name="Heading 2">
-      <p className="absolute font-['Epilogue:Regular',_sans-serif] font-normal inset-0 leading-[normal] text-[20px] text-black">
-        Indie Hacker / Software Engineer / Designer
-      </p>
+    <div
+      className={`${heading2Font.className} text-[20px] leading-[normal]`}
+      data-name="Heading 2"
+    >
+      Indie Hacker / Software Engineer / Designer
     </div>
   );
 }
@@ -37,16 +46,7 @@ function Name() {
 }
 
 function Avatar() {
-  return (
-    <Image
-      alt=""
-      className="block max-w-none size-full"
-      height={100}
-      src={imgAvatar}
-      width={100}
-      priority
-    />
-  );
+  return <Image alt="" height={100} src="/avatar.svg" width={100} />;
 }
 
 export default function Header() {
