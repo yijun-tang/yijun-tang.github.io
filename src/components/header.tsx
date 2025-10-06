@@ -1,5 +1,5 @@
 import Image from "next/image";
-import imgAvatar from "../../public/avatar.png";
+import imgAvatar from "../../public/avatar.svg";
 
 function Heading1() {
   return (
