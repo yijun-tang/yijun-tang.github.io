@@ -1,13 +1,17 @@
+import { Encode_Sans_SC } from "next/font/google";
+
+const sectionFont = Encode_Sans_SC({
+  subsets: ["latin"],
+  weight: "700",
+});
+
 function Section() {
   return (
     <div
       className="content-stretch flex flex-col h-[28px] items-start relative shrink-0"
       data-name="Section"
     >
-      <p
-        className="font-['Encode_Sans_SC:Bold',_sans-serif] font-bold leading-[normal] relative shrink-0 text-[20px] text-black w-full"
-        style={{ fontVariationSettings: "'wdth' 100" }}
-      >
+      <p className={`${sectionFont.className} text-[20px] leading-[normal]`}>
         Contacts
       </p>
       <div className="bg-black h-[3px] shrink-0 w-full" />

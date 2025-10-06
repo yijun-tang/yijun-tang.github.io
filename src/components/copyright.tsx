@@ -1,9 +1,17 @@
+import { Inter } from "next/font/google";
+
+const copyrightFont = Inter({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export default function Copyright() {
   return (
-    <div className="h-[17px] relative shrink-0 w-full" data-name="Copyright">
-      <p className="absolute bottom-0 font-['Inter:Regular',_sans-serif] font-normal leading-[normal] left-[28%] not-italic right-[28%] text-[14px] text-black text-center text-nowrap top-0 whitespace-pre">
-        © 2025<span>{` Yijun Tang. All Rights Reserved.`}</span>
-      </p>
+    <div
+      className={`${copyrightFont.className} text-[14px] text-center leading-[normal]`}
+      data-name="Copyright"
+    >
+      © 2025 Yijun Tang. All Rights Reserved.
     </div>
   );
 }
