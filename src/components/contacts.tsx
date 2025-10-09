@@ -151,11 +151,11 @@ function LinkedinBlack() {
 export default function Contacts() {
   return (
     <div
-      className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full"
+      className="content-stretch flex flex-col gap-3 sm:gap-4 items-start relative w-full"
     >
       <SectionHeader title="Contacts" />
       <div
-        className="content-stretch flex gap-[40px] items-center justify-center relative shrink-0 w-full"
+        className="content-stretch flex gap-6 sm:gap-10 items-center justify-center relative w-full"
       >
         <GmailBlack />
         <XBlack />

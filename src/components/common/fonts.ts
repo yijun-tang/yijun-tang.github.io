@@ -29,7 +29,7 @@ export const linkFont = Epilogue({
 });
 
 // Footer font
-export const copyrightFont = Inter({
+export const copyrightFont = Epilogue({
   subsets: ["latin"],
   weight: "400",
 });

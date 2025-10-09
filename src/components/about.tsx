@@ -4,11 +4,11 @@ import SectionHeader from "./common/section-header";
 export default function About() {
   return (
     <div
-      className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full"
+      className="content-stretch flex flex-col gap-3 sm:gap-4 items-start relative w-full"
     >
       <SectionHeader title="About" />
       <div
-        className={`${paragraphFont.className} text-[18px] leading-[22px]`}
+        className={`${paragraphFont.className} text-base sm:text-lg leading-relaxed sm:leading-7`}
       >
         Yijun (or pronounced as Eugene) is a software engineer and designer based
         in Shenzhen with a passion for building virtual products he interests. He

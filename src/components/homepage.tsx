@@ -8,7 +8,7 @@ import Quote from "./quote";
 export default function Homepage() {
   return (
     <div
-      className="mx-auto pt-[132px] pb-[132px] gap-[50px] grid w-[600px]"
+      className="mx-auto w-full max-w-screen-sm grid gap-8 sm:gap-10 md:gap-12 px-4 sm:px-6 pt-16 sm:pt-24 md:pt-32 pb-16 sm:pb-24 md:pb-32"
     >
       <Header />
       <About />

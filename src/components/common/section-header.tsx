@@ -12,12 +12,12 @@ interface SectionHeaderProps {
 export default function SectionHeader({ title }: SectionHeaderProps) {
   return (
     <div
-      className="content-stretch flex flex-col h-[28px] items-start relative shrink-0"
+      className="content-stretch flex flex-col items-start relative w-fit"
     >
-      <p className={`${sectionFont.className} text-[20px] leading-[normal]`}>
+      <p className={`${sectionFont.className} text-lg sm:text-xl leading-tight`}>
         {title}
       </p>
-      <div className="bg-black h-[3px] shrink-0 w-full" />
+      <div className="bg-black h-[2px] sm:h-[3px] w-full" />
     </div>
   );
 }
