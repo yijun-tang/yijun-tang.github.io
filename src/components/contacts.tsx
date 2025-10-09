@@ -52,6 +52,8 @@ function XBlack() {
       className="block overflow-visible relative shrink-0 size-[24px]"
       data-name="X, Black"
       href="https://x.com/yijun_tang_"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <XBlackSvg />
     </a>
@@ -95,6 +97,8 @@ function GithubBlack() {
       className="block overflow-visible relative shrink-0 size-[24px]"
       data-name="Github, Black"
       href="https://github.com/yijun-tang"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <GithubBlackSvg />
     </a>
@@ -136,6 +140,8 @@ function LinkedinBlack() {
       className="block overflow-visible relative shrink-0 size-[24px]"
       data-name="Linkedin, Black"
       href="https://www.linkedin.com/in/yijun-tang/"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <LinkedinBlackSvg />
     </a>
