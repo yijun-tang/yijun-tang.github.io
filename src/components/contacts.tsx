@@ -1,23 +1,4 @@
-import { Encode_Sans_SC } from "next/font/google";
-
-const sectionFont = Encode_Sans_SC({
-  subsets: ["latin"],
-  weight: "700",
-});
-
-function Section() {
-  return (
-    <div
-      className="content-stretch flex flex-col h-[28px] items-start relative shrink-0"
-      data-name="Section"
-    >
-      <p className={`${sectionFont.className} text-[20px] leading-[normal]`}>
-        Contacts
-      </p>
-      <div className="bg-black h-[3px] shrink-0 w-full" />
-    </div>
-  );
-}
+import SectionHeader from "./common/section-header";
 
 function GmailBlackSvg() {
   return (
@@ -161,28 +142,20 @@ function LinkedinBlack() {
   );
 }
 
-function SocialMediaLogos() {
-  return (
-    <div
-      className="content-stretch cursor-pointer flex gap-[40px] items-center justify-center relative shrink-0 w-full"
-      data-name="Social Media Logos"
-    >
-      <GmailBlack />
-      <XBlack />
-      <GithubBlack />
-      <LinkedinBlack />
-    </div>
-  );
-}
-
 export default function Contacts() {
   return (
     <div
       className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full"
-      data-name="Contacts"
     >
-      <Section />
-      <SocialMediaLogos />
+      <SectionHeader title="Contacts" />
+      <div
+        className="content-stretch flex gap-[40px] items-center justify-center relative shrink-0 w-full"
+      >
+        <GmailBlack />
+        <XBlack />
+        <GithubBlack />
+        <LinkedinBlack />
+      </div>
     </div>
   );
 }
